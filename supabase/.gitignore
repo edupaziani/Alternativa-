@@ -1,0 +1,4 @@
+# Supabase local dev artefacts — never commit these
+.branches
+.temp
+.env
