@@ -13,3 +13,17 @@ export enum AppointmentStatus {
   CANCELLED = 'cancelled',
   NO_SHOW = 'no_show',
 }
+
+export enum Gender {
+  MALE = 'male',
+  FEMALE = 'female',
+  OTHER = 'other',
+}
+
+export enum MaritalStatus {
+  SINGLE = 'single',
+  MARRIED = 'married',
+  DIVORCED = 'divorced',
+  WIDOWED = 'widowed',
+  OTHER = 'other',
+}

@@ -123,37 +123,67 @@ export type Database = {
       }
       patients: {
         Row: {
+          active: boolean
+          address_city: string | null
+          address_complement: string | null
+          address_neighborhood: string | null
+          address_number: string | null
+          address_state: string | null
+          address_street: string | null
           birth_date: string | null
+          cep: string | null
           convenio_id: string | null
           cpf: string | null
           created_at: string
           deleted_at: string | null
           email: string | null
+          gender: string | null
           id: string
+          marital_status: string | null
           name: string
           phone: string | null
           updated_at: string
         }
         Insert: {
+          active?: boolean
+          address_city?: string | null
+          address_complement?: string | null
+          address_neighborhood?: string | null
+          address_number?: string | null
+          address_state?: string | null
+          address_street?: string | null
           birth_date?: string | null
+          cep?: string | null
           convenio_id?: string | null
           cpf?: string | null
           created_at?: string
           deleted_at?: string | null
           email?: string | null
+          gender?: string | null
           id?: string
+          marital_status?: string | null
           name: string
           phone?: string | null
           updated_at?: string
         }
         Update: {
+          active?: boolean
+          address_city?: string | null
+          address_complement?: string | null
+          address_neighborhood?: string | null
+          address_number?: string | null
+          address_state?: string | null
+          address_street?: string | null
           birth_date?: string | null
+          cep?: string | null
           convenio_id?: string | null
           cpf?: string | null
           created_at?: string
           deleted_at?: string | null
           email?: string | null
+          gender?: string | null
           id?: string
+          marital_status?: string | null
           name?: string
           phone?: string | null
           updated_at?: string

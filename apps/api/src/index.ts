@@ -3,6 +3,8 @@ import Fastify from 'fastify'
 import supabasePlugin from './plugins/supabase'
 import authPlugin from './plugins/auth'
 import errorsPlugin from './plugins/errors'
+import patientRoutes from './routes/patients'
+import convenioRoutes from './routes/convenios'
 
 const fastify = Fastify({ logger: true })
 
@@ -11,6 +13,9 @@ fastify.register(authPlugin)
 fastify.register(errorsPlugin)
 
 fastify.get('/health', async () => ({ status: 'ok' }))
+
+fastify.register(patientRoutes, { prefix: '/patients' })
+fastify.register(convenioRoutes, { prefix: '/convenios' })
 
 const start = async () => {
   try {

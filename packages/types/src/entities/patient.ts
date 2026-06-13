@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { Gender, MaritalStatus } from '../enums'
 
 export const PatientSchema = z.object({
   id: z.string().uuid(),
@@ -7,7 +8,17 @@ export const PatientSchema = z.object({
   birthDate: z.string().nullable(),
   phone: z.string().nullable(),
   email: z.string().email('E-mail inválido').nullable(),
+  gender: z.nativeEnum(Gender).nullable(),
+  maritalStatus: z.nativeEnum(MaritalStatus).nullable(),
+  active: z.boolean(),
   convenioId: z.string().uuid().nullable(),
+  cep: z.string().nullable(),
+  addressStreet: z.string().nullable(),
+  addressNumber: z.string().nullable(),
+  addressComplement: z.string().nullable(),
+  addressNeighborhood: z.string().nullable(),
+  addressCity: z.string().nullable(),
+  addressState: z.string().length(2).nullable(),
   deletedAt: z.string().nullable(),
   createdAt: z.string(),
   updatedAt: z.string(),
