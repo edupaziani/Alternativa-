@@ -110,7 +110,7 @@ export function PatientForm({ patientId, defaultValues, convenios }: PatientForm
         | 'widowed'
         | 'other'
         | null,
-      convenioId: values.convenioId || null,
+      convenioId: values.convenioId === 'none' || !values.convenioId ? null : values.convenioId,
     }
 
     try {
@@ -268,7 +268,7 @@ export function PatientForm({ patientId, defaultValues, convenios }: PatientForm
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="">Particular</SelectItem>
+                    <SelectItem value="none">Particular</SelectItem>
                     {convenios.map((c) => (
                       <SelectItem key={c.id} value={c.id}>
                         {c.name}
