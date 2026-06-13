@@ -2,9 +2,7 @@ import { Suspense } from 'react'
 import Link from 'next/link'
 import { serverApi } from '@/lib/api-server'
 import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import { DataTable } from '@/components/data-table/DataTable'
-import type { ColumnDef } from '@tanstack/react-table'
+import { ProfessionalsTable } from '@/components/professionals/ProfessionalsTable'
 
 interface ProfessionalRow {
   id: string
@@ -13,44 +11,6 @@ interface ProfessionalRow {
   crm: string | null
   attendance_units: { name: string } | null
 }
-
-const columns: ColumnDef<ProfessionalRow>[] = [
-  {
-    accessorKey: 'name',
-    header: 'Nome',
-    cell: ({ row }) => (
-      <Link href={`/professionals/${row.original.id}`} className="font-medium hover:underline">
-        {row.original.name}
-      </Link>
-    ),
-  },
-  {
-    accessorKey: 'specialty',
-    header: 'Especialidade',
-    cell: ({ getValue }) => getValue<string | null>() ?? '—',
-  },
-  {
-    accessorKey: 'crm',
-    header: 'CRM',
-    cell: ({ getValue }) => {
-      const v = getValue<string | null>()
-      return v ? <Badge variant="outline">{v}</Badge> : '—'
-    },
-  },
-  {
-    id: 'unit',
-    header: 'Unidade principal',
-    cell: ({ row }) => row.original.attendance_units?.name ?? '—',
-  },
-  {
-    id: 'actions',
-    cell: ({ row }) => (
-      <Link href={`/professionals/${row.original.id}/edit`}>
-        <Button variant="outline" size="sm">Editar</Button>
-      </Link>
-    ),
-  },
-]
 
 export default async function ProfessionalsPage() {
   const res = await serverApi
@@ -68,7 +28,7 @@ export default async function ProfessionalsPage() {
         </Link>
       </div>
       <Suspense>
-        <DataTable columns={columns} data={professionals} emptyMessage="Nenhum profissional cadastrado." />
+        <ProfessionalsTable data={professionals} />
       </Suspense>
     </div>
   )
