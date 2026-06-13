@@ -33,6 +33,12 @@ export default async function DashboardLayout({
           >
             Profissionais
           </Link>
+          <Link
+            href="/attendance-units"
+            className="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-slate-100"
+          >
+            Unidades
+          </Link>
         </nav>
       </aside>
       <main className="flex-1 overflow-auto">{children}</main>

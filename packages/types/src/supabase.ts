@@ -255,6 +255,7 @@ export type Database = {
           crm: string | null
           deleted_at: string | null
           id: string
+          name: string
           profile_id: string | null
           specialty: string | null
           unit_id: string | null
@@ -265,6 +266,7 @@ export type Database = {
           crm?: string | null
           deleted_at?: string | null
           id?: string
+          name?: string
           profile_id?: string | null
           specialty?: string | null
           unit_id?: string | null
@@ -275,6 +277,7 @@ export type Database = {
           crm?: string | null
           deleted_at?: string | null
           id?: string
+          name?: string
           profile_id?: string | null
           specialty?: string | null
           unit_id?: string | null
